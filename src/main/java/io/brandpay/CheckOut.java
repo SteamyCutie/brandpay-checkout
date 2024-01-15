@@ -13,8 +13,15 @@ public class CheckOut {
         this.specialPrices = specialPrices;
     }
 
-    public void scan(char item) {
-        itemCounts.put(item, itemCounts.getOrDefault(item, 0) + 1);
+    public void scan(String items) {
+        for (char item: items.toCharArray()) {
+            itemCounts.put(item, itemCounts.getOrDefault(item, 0) + 1);
+        }
+    }
+
+    public void empty() {
+        itemCounts.clear();
+        System.out.println("Cart Cleared.");
     }
 
     public int total() {
