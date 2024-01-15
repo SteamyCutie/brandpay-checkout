@@ -19,6 +19,16 @@ public class CheckOutTest {
         assertEquals(115, totalPrice);
     }
 
+    @Test
+    public void testTotalPriceWithSpecialPrice() {
+        CheckOut co = createCheckOutWithPricingRules();
+
+        co.scan("AAAABBBB");
+        int totalPrice = co.total();
+
+        assertEquals(270, totalPrice);
+    }
+
     private CheckOut createCheckOutWithPricingRules() {
         Map<Character, Integer> unitPrices = new HashMap<>();
         unitPrices.put('A', 50);
